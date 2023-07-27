@@ -6,9 +6,9 @@ import { IStudent } from "../Schema/Schema";
 @Resolver(IStudent)
 class StudentQueryResolvers {
   @Query(() => [IStudent])
-  async getStudents(): Promise<any> {
+  async getStudents(): Promise<IStudent | null> {
     try {
-      const { data }:any = await client.query(
+      const { data }: any = await client.query(
         q.Map(
           q.Paginate(q.Documents(q.Collection("studentdata"))),
           q.Lambda((x) => q.Get(x))
@@ -21,9 +21,9 @@ class StudentQueryResolvers {
         age: d.data.age,
       }));
     } catch (error) {
-      console.log("error", error);
+      return null;
     }
   }
 }
 
-export default StudentQueryResolvers
+export default StudentQueryResolvers;

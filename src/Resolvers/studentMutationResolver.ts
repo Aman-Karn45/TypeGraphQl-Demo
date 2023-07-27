@@ -1,4 +1,4 @@
-import { Resolver, Mutation, Arg, Args } from "type-graphql";
+import { Resolver, Mutation, Arg } from "type-graphql";
 import { query as q } from "faunadb";
 import { client } from "../Config/dbConn";
 import { IStudent } from "../Schema/Schema";
@@ -10,20 +10,17 @@ class StudentMutationResolvers {
     @Arg("name") name: string,
     @Arg("email") email: string,
     @Arg("age") age: string
-  ): Promise<IStudent> {
-    //IStudent check 
+  ): Promise<IStudent | null> {
     try {
       const { data }: { data: IStudent } = await client.query(
         q.Create(q.Collection("studentdata"), {
           data: { name, email, age },
         })
       );
-      console.log("result", data);
       return data;
     } catch (error) {
       console.log("error", error);
-      // return null
-      throw new Error("Failed to update the student data ");
+      return null;
     }
   }
 
@@ -33,7 +30,7 @@ class StudentMutationResolvers {
     @Arg("name") name: string,
     @Arg("email") email: string,
     @Arg("age") age: string
-  ): Promise<IStudent> {
+  ): Promise<IStudent | null> {
     try {
       const { data }: { data: IStudent } = await client.query(
         q.Update(q.Ref(q.Collection("studentdata"), id), {
@@ -44,27 +41,22 @@ class StudentMutationResolvers {
           },
         })
       );
-      console.log("update", data);
       return data;
     } catch (error) {
       console.log("error", error);
-      throw new Error("Failed to add the student data ");
+      return null;
     }
   }
 
   @Mutation(() => IStudent)
-  async deleteStudent(
-      @Arg("id") id:string
-  ): Promise<IStudent> {
+  async deleteStudent(@Arg("id") id: string): Promise<IStudent | null> {
     try {
       const { data }: { data: IStudent } = await client.query(
-        q.Delete(q.Ref(q.Collection("studentdata"),id))
+        q.Delete(q.Ref(q.Collection("studentdata"), id))
       );
-      console.log("deleted data ",data)
-      return data 
+      return data;
     } catch (error) {
-      console.log("error", error);
-      throw new Error("Failed to delete the student data ");
+      return null;
     }
   }
 }
