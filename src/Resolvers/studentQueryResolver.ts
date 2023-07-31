@@ -3,12 +3,12 @@ import { query as q } from "faunadb";
 import { client } from "../Config/dbConn";
 import { IStudent } from "../Schema/Schema";
 
-@Resolver(IStudent)
+@Resolver()
 class StudentQueryResolvers {
   @Query(() => [IStudent])
   async getStudents(): Promise<IStudent | null> {
     try {
-      const { data }: any = await client.query(
+      const { data }:any = await client.query(
         q.Map(
           q.Paginate(q.Documents(q.Collection("studentdata"))),
           q.Lambda((x) => q.Get(x))
@@ -21,9 +21,8 @@ class StudentQueryResolvers {
         age: d.data.age,
       }));
     } catch (error) {
-      return null;
+      return null 
     }
   }
 }
-
-export default StudentQueryResolvers;
+export default StudentQueryResolvers

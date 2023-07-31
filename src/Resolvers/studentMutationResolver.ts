@@ -23,7 +23,6 @@ class StudentMutationResolvers {
       return null;
     }
   }
-
   @Mutation(() => IStudent)
   async updateStudent(
     @Arg("id") id: string,
@@ -47,7 +46,6 @@ class StudentMutationResolvers {
       return null;
     }
   }
-
   @Mutation(() => IStudent)
   async deleteStudent(@Arg("id") id: string): Promise<IStudent | null> {
     try {

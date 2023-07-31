@@ -6,7 +6,7 @@ import StudentQueryResolvers from "./Resolvers/studentQueryResolver";
 require("dotenv").config();
 const PORT = process.env.PORT;
 
-const createServer = async () => {
+export const createServer = async () => {
   const schema = await buildSchema({
     resolvers: [StudentQueryResolvers, StudentMutationResolvers],
   });
@@ -14,8 +14,12 @@ const createServer = async () => {
   return server;
 };
 
-createServer().then((server) => {
-  server.listen({ port: PORT }).then(({ url }) => {
-    console.log(`Server running on ${url}`);
-  });
-});
+export const startServer = async () => {
+  const server = await createServer();
+  await server.listen({ port: PORT });
+  console.log(`Server running on http://localhost:${PORT}`);
+};
+
+if (require.main === module) {
+  startServer();
+}
