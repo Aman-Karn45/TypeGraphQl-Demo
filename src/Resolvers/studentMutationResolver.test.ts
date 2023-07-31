@@ -2,7 +2,6 @@ import "reflect-metadata";
 import { ApolloServer } from "apollo-server";
 import { GraphQLSchema } from "graphql";
 import { buildSchema } from "type-graphql";
-import { IStudent } from "../Schema/Schema";
 import StudentMutationResolvers from "./studentMutationResolver";
 import StudentQueryResolvers from "./studentQueryResolver";
 import { client } from "../Config/dbConn";
