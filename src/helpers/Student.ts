@@ -1,6 +1,7 @@
 import { query as q } from "faunadb";
 import { client } from "../Config/dbConn";
-import { IStudent} from "../Schema/Schema";
+import { IStudent } from "../Schema/Schema";
+import { errorHandler } from "../helpers/errorhandler";
 
 export const createStudent = async (
   name: string,
@@ -15,8 +16,8 @@ export const createStudent = async (
     );
     return data;
   } catch (error) {
-    console.log("error", error);
-    return null;
+    // return errorHandler(error);
+    return null
   }
 };
 
@@ -38,8 +39,9 @@ export const UpdateData = async (
     );
     return data;
   } catch (error) {
-    console.log("error", error);
-    return null;
+      return null 
+
+    // return errorHandler(error);
   }
 };
 
@@ -50,6 +52,7 @@ export const deltedData = async (id: string): Promise<IStudent | null> => {
     );
     return data;
   } catch (error) {
-    return null;
+      return null
+    // return errorHandler(error);
   }
 };

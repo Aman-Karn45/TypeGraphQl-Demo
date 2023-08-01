@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1690865495914" clover="3.2.0">
-  <project timestamp="1690865495914" name="All files">
-    <metrics statements="18" coveredstatements="13" conditionals="1" coveredconditionals="0" methods="4" coveredmethods="4" elements="23" coveredelements="17" complexity="0" loc="18" ncloc="18" packages="2" files="2" classes="2"/>
+<coverage generated="1690869331955" clover="3.2.0">
+  <project timestamp="1690869331955" name="All files">
+    <metrics statements="22" coveredstatements="19" conditionals="1" coveredconditionals="0" methods="6" coveredmethods="6" elements="29" coveredelements="25" complexity="0" loc="22" ncloc="22" packages="2" files="2" classes="2"/>
     <package name="Config">
       <metrics statements="6" coveredstatements="5" conditionals="1" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="dbConn.ts" path="D:\typeGraphql\src\Config\dbConn.ts">
@@ -15,21 +15,25 @@
       </file>
     </package>
     <package name="helpers">
-      <metrics statements="12" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <metrics statements="16" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
       <file name="Student.ts" path="D:\typeGraphql\src\helpers\Student.ts">
-        <metrics statements="12" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <metrics statements="16" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
       </file>
     </package>
   </project>

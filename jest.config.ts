@@ -4,5 +4,6 @@ module.exports = {
     "^.+\\.tsx?$": "ts-jest",
   },
   transformIgnorePatterns: [],
-  setupFilesAfterEnv:["esm"]
+  setupFilesAfterEnv:["esm"],
+ 
 };

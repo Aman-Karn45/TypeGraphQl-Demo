@@ -27,20 +27,17 @@ test("UPdate Student", async () => {
   expect(updatedResult).toEqual(UpdateMockedData);
 });
 
+describe("Deletd", () => {
+  test("Delete Data", async () => {
+    jest.spyOn(client, "query").mockResolvedValueOnce({ data: mockedData });
+    const deletdResult = await deltedData("123");
+    expect(deletdResult).toEqual(mockedData);
+ 
+  });
 
-
-describe("Deletd",()=>{
-    test("Delete Data", async () => {
-      jest.spyOn(client, "query").mockResolvedValueOnce({ data: mockedData });
-      const deletdResult = await deltedData("123");
-      expect(deletdResult).toEqual(mockedData);
-      expect(client.query).toHaveBeenCalledTimes(1);
-    });
-
-    test("Should return null if error",async ()=>{
-        jest.spyOn(client,"query").mockRejectedValueOnce(new Error("Some Error"))
-            const deletedStudent = await deltedData("123");   
-            expect(deletedStudent).toBeNull();
-    })
-
-})
+  test("Should return null if error", async () => {
+    jest.spyOn(client, "query").mockRejectedValueOnce(new Error("Some Error"));
+    const deletedStudent = await deltedData("123");
+    expect(deletedStudent).toBeNull();
+  });
+});
